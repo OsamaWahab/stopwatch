@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch</title>
+</head>
+<style>
+    body{
+			background-color:  #0000;
+			/* color: #f6f6f6; */
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		.watch1 {
+			font-size: 15em;
+			font-family: monospace;
+		}
+</style>
+<body>
+    <div id="watch" class="watch1"></div>
+    <script>
+        function Time() {   
+            
+        var date = new Date();
+        var h ,m, s,session;
+        h = date.getHours();
+        m = date.getMinutes();
+        s = date.getSeconds();
+        session = "AM";
+        if (h == 0) {
+            h = 12;
+        }
+        if (h > 12 ) {
+            h = 12;
+            session = "PM";
+        }
+        h = (h < 10) ? "0" + h : h
+        m = (m < 10) ? "0" + m : m
+        s = (s < 10) ? "0" + s : s
+         var time = h + ":" + m + ":" + s + " " + session ;
+         document.getElementById("watch").innerText = time;
+         document.getElementById("watch").textContent = time;
+        
+         setTimeout(Time,1000);
+
+        }
+        Time();
+        
+    </script>
+</body>
+</html>
